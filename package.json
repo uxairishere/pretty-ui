@@ -8,6 +8,12 @@
   "files": [
     "dist/**/*"
   ],
+  "release": {
+    "branches": [
+      "main",
+      "next"
+    ]
+  },
   "repository": {
     "url": "https://github.com/uxairishere/pretty-ui"
   },
