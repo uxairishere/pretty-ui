@@ -1,4 +1,4 @@
-name: Uxair PrettyUI 
+name: Semantic release 
 
 on: push
 jobs:
