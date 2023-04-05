@@ -11,6 +11,7 @@
   "repository": {
     "url": "https://github.com/uxairishere/pretty-ui"
   },
+  
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -28,13 +29,16 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-react": "react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "build": "rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap"
+    "build-storybook": "storybook build"
   },
+  "release": {
+    "branches": [
+      "main"
+    ],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -43,7 +47,8 @@
     "@semantic-release/npm",
     "@semantic-release/yarn",
     "@semantic-release/git"
-  ],
+  ]
+},
   "eslintConfig": {
     "extends": [
       "react-app",
