@@ -1,10 +1,16 @@
 {
   "name": "@uxair/pretty-ui",
   "version": "0.1.0",
-  "files": [
-    "dist"
-  ],
   "main": "dist/index.js",
+  "module": "dist/index.m.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "url": "https://github.com/uxairishere/pretty-ui"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -22,11 +28,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build-react": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "rm -rf dist && microbundle --tsconfig tsconfig.json --no-sourcemap"
   },
   "plugins": [
     "@semantic-release/commit-analyzer",
