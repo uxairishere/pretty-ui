@@ -35,10 +35,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "release": {
-    "branches": [
-      "main"
-    ],
+
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -47,8 +44,7 @@
     "@semantic-release/npm",
     "@semantic-release/yarn",
     "@semantic-release/git"
-  ]
-},
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
