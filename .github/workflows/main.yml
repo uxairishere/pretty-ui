@@ -1,32 +1,21 @@
-name: Uxair deeplawnUI
-on:
-  release:
-    types: [created]
+name: Semantic release 
 
+on: push
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+          node-version: 12
+      - name: Install dependencies
+        run: npm install 
+      - name: Build app
+        run: npm run build 
+      - name: Semantic release
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
